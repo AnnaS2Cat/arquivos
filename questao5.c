@@ -9,19 +9,18 @@ int main()
     printf("Diga uma palavra: ");
     scanf("%25s", string);
 
-    FILE* file = fopen("ex1.txt", "w");
+    FILE* file = fopen("q1.txt", "w");
     if (file == NULL){
         printf("não conseguiu criar o arquivo\n");
         return 1;
     }
 
     escreva_string (file, string);
-
     fclose(file);
 }
 void escreva_string (FILE* f, char* str){
     int size = strlen(str);
     for (int i = 0; i < size; i++){
-        fputc(str[i], f);
+        fputc(str[i], f); // equivalente a escrever com fprintf(f, "%c", str[i]), mas mais simples e direto, c é cactere tipo char
     }
 }
