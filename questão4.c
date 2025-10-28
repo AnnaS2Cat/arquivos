@@ -11,7 +11,7 @@ int main(void)
     for(int i = 0; i<10; i++){ 
         char string[32]; //guarda uma palavra digitada pelo usuário até 31 caracteres + \0 final
         printf("Diga uma palavra: ");
-        scanf("%25s", string);    //string e &string[0] são equivalentes pq string é um ponteiro para o primeiro elemento
+        scanf("%31s", string);    //string e &string[0] são equivalentes pq string é um ponteiro para o primeiro elemento
 
         int size = strlen(string);
 
