@@ -8,18 +8,20 @@ int main(void)
         printf("arquivo não criado \n");
         return 1;
     }
+    char strings[10][26];
     for(int i = 0; i<10; i++){ 
-        char string[32]; //guarda uma palavra digitada pelo usuário até 31 caracteres + \0 final
         printf("Diga uma palavra: ");
-        scanf("%31s", string);    //string e &string[0] são equivalentes pq string é um ponteiro para o primeiro elemento
-
-        int size = strlen(string);
+        scanf("%25s", strings[i]);    //string[i] e &strings[i][0] são equivalentes pq string é um ponteiro para o primeiro elemento. Scanf precisa receber o endereço do primeiro caractere da string onde vai guardar o texto
+        //tá acessando a primeira string, depois a segunda até 10
+        //leio ela pra saber o que tem dentro, pra depois que o computador souber, colocar no arquivo
+        
+        int size = strlen(strings[i]);
 
         for (int i = 0; i < size; i++){
-            fputc(string[i], file); //grava um caractere por vez no arquivo
+            fputc(strings[i][j], file); //grava um caractere por vez no arquivo
         }
-        fprintf(file, "\n"); //cada palavra fica separada por linha no arquivo
+         fputc('\n', file);  //cada palavra fica separada por linha no arquivo
     }
-
     fclose(file); //fecha o arquivo e garante que tudo que foi escrito em memória seja realmente salvo em disco
+    printf("As palavras foram salvas em 'q4.txt'.\n");
 }
